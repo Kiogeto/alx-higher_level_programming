@@ -1,9 +1,14 @@
 #!/usr/bin/python3
-"""MyList module"""
+
+"""The module is 1-my_list"""
 
 
 class MyList(list):
-    """MyList class - Inherits from list"""
+    """A subclass of list"""
+    def __init__(self):
+        """initialize the object"""
+        super().__init__()
+
     def print_sorted(self):
-        """Prints a sorted list"""
+        """prints the sorted list"""
         print(sorted(self))

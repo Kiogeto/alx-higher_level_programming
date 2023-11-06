@@ -1,9 +1,12 @@
 #!/usr/bin/python3
-"""Module containing is_kind_of_class method"""
+
+"""The module is 2-is_same_class"""
 
 
-def is_kind_of_class(obj, a_class):
-    """returns True if the object is an instance of, or if the
-    object is an instance of a class that inherited from
-    the specified class ; otherwise False """
-    return isinstance(obj, a_class)
+def is_same_class(obj, a_class):
+    """
+    checks if the object is exactly an instance of the specified class
+    Returns True if the object is exactly an instance of the specified class
+    Returns False otherwise
+    """
+    return type(obj) is a_class
