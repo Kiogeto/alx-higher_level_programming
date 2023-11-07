@@ -1,22 +1,18 @@
 #!/usr/bin/python3
-""""adds all arguments to a Python list"""
+"""
+ save items to a file.
+"""
 
 import sys
-from unicodedata import name
+import os.path
 
-if __name__ == "__main__":
-    save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
-    load_from_json_file = __import__(
-        '6-load_from_json_file').load_from_json_file
+args = sys.argv[1:]
 
-    name = "add_item.json"
-    arg = sys.argv[1:]
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-    try:
-        a = load_from_json_file(name)
+item = []
+if os.path.exists("./add_item.json"):
+    item = load_from_json_file("add_item.json")
 
-    except FileNotFoundError:
-        a = []
-
-    a.extend(arg)
-    save_to_json_file(a, name)
+save_to_json_file(item + args, "add_item.json")
